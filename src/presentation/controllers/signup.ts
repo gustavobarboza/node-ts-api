@@ -4,7 +4,7 @@ import { HttpRequest, HttpResponse } from '../protocols/http';
 
 export default class SignUpController {
   handle(httpRequest: HttpRequest): HttpResponse {
-    const requiredFields = ['name', 'email'];
+    const requiredFields = ['name', 'email', 'password'];
 
     // const missingFields: Array<string> = [];
 
