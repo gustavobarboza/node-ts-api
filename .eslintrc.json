@@ -14,5 +14,11 @@
   "plugins": [
     "@typescript-eslint"
   ],
-  "rules": {}
+  "rules": {
+    "quotes": [
+      2,
+      "double"
+    ],
+    "no-undef": "off"
+  }
 }
