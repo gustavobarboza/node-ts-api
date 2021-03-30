@@ -4,11 +4,21 @@ import { HttpRequest, HttpResponse } from '../protocols/http';
 
 export default class SignUpController {
   handle(httpRequest: HttpRequest): HttpResponse {
-    if (!httpRequest.body.name) {
-      return badRequest(new MissingParamError('Missing param: name'));
-    }
-    if (!httpRequest.body.email) {
-      return badRequest(new MissingParamError('Missing param: email'));
+    const requiredFields = ['name', 'email'];
+
+    // const missingFields: Array<string> = [];
+
+    // requiredFields.forEach((field) => {
+    //   if (!httpRequest.body[field]) {
+    //     missingFields.push(field);
+    //   }
+    // });
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const field of requiredFields) {
+      if (!httpRequest.body[field]) {
+        return badRequest(new MissingParamError(field));
+      }
     }
 
     return null;
