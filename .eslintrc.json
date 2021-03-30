@@ -17,6 +17,18 @@
   "rules": {
     "no-undef": "off",
     "class-methods-use-this": "off",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
