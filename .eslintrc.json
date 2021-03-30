@@ -15,10 +15,8 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "quotes": [
-      2,
-      "double"
-    ],
-    "no-undef": "off"
+    "no-undef": "off",
+    "class-methods-use-this": "off",
+    "no-unused-vars": "warn"
   }
 }
