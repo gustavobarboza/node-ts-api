@@ -1,6 +1,5 @@
 import { InvalidParamError } from '../errors/InvalidParamError';
 import { MissingParamError } from '../errors/MissingParamError';
-import { ServerError } from '../errors/server-error';
 import { badRequest, serverError } from '../helpers/http-helper';
 import { Controller } from '../protocols/controller';
 import { EmailValidator } from '../protocols/email-validator';
@@ -29,7 +28,7 @@ export default class SignUpController implements Controller {
 
       return null;
     } catch (error) {
-      return serverError(new ServerError());
+      return serverError();
     }
   }
 }
