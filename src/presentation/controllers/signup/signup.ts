@@ -14,7 +14,7 @@ export default class SignUpController implements Controller {
     this.addAccount = addAccount;
   }
 
-  handle(httpRequest: HttpRequest): HttpResponse {
+  async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     const requiredFields = ['name', 'email', 'password', 'passwordConfirmation'];
     try {
       // eslint-disable-next-line no-restricted-syntax
@@ -34,15 +34,13 @@ export default class SignUpController implements Controller {
         return badRequest(new InvalidParamError('email'));
       }
 
-      const addedAccount = this.addAccount.add({
+      const addedAccount = await this.addAccount.add({
         name,
         email,
         password,
       });
-      return created({
-        statusCode: 201,
-        body: addedAccount,
-      });
+
+      return created(addedAccount);
     } catch (error) {
       return serverError();
     }
