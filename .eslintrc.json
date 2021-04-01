@@ -26,7 +26,8 @@
         "ts": "never"
       }
     ],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "max-classes-per-file": "off"
   },
   "settings": {
     "import/resolver": {
